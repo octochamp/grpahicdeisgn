@@ -4,18 +4,35 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: MapleMono;
+    src: url(assets/fonts/MapleMono[wght]-VF.woff2);
+}
+
+@font-face {
+    font-family: MapleMonoItalic;
+    src: url(assets/fonts/MapleMono-Italic[wght]-VF.woff2);
+}
+
+@font-face {
+    font-family: GrpahicDeisgn;
+    src: url(assets/fonts/brandv1-Regular.otf);
+}
+
 body {
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: MapleMono, monospace;
+    font-weight: 300;
 }
 
 #background-image {
     width: 100vw;
     height: 100vh;
-    background-image: url('/assets/images/internal-image-1.jpg');
+    background-image: url('/assets/images/external-image-1.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -41,4 +58,106 @@ body {
     display: block;
     max-width: 100%;
     height: auto;
+}
+
+a {
+    font-weight: 100;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    color: #000000;
+}
+
+a:hover {
+    font-weight: 500;
+    text-decoration-style: wavy;
+}
+
+.italic {
+    font-family: MapleMonoItalic;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.light {
+    font-weight: 100;
+}
+
+.grpahicdeisgn {
+    font-family: GrpahicDeisgn, MapleMono, monospace;
+}
+
+.spell-check-underline {
+    text-decoration: underline;
+    text-decoration-color: red; /* Set the color of the underline */
+    text-decoration-style: wavy;
+}
+
+/* Floating Text Box Styles */
+.floating-box {
+    position: absolute;
+    border: 0px solid #3a3a3a;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0);
+    z-index: 10;
+    overflow: hidden;
+    min-width: 120px;
+    min-height: 80px;
+    transition: box-shadow 0.2s;
+    user-select: none;
+    backdrop-filter: blur(14px);
+    display: flex;
+    flex-direction: column;
+}
+
+.dark-variant {
+    background: rgba(203, 159, 164, 0.5);
+    color: #000000;
+}
+
+.floating-box:active,
+.floating-box.dragging {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.box-header {
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.35);
+    border-bottom: 0px solid #e0e0e0;
+    padding: 0.45em 0.75em;
+    cursor: move;
+    user-select: none;
+}
+
+.box-content {
+    padding: 0.75em;
+    user-select: text;
+    overflow: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.resize-handle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 18px;
+    height: 18px;
+    background: rgba(160, 160, 160, 0.13);
+    border-bottom-right-radius: 8px;
+    cursor: se-resize;
+    z-index: 11;
+}
+
+.resize-handle:after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: url('data:image/svg+xml;utf8,<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M2 16h14M7 11l7 7" stroke="gray" stroke-width="2" fill="none"/></svg>');
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
