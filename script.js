@@ -69,6 +69,9 @@
         
         // Add touchmove for mobile devices
         document.addEventListener('touchmove', function(e) {
+            if (dragActive || resizeActive) {
+                e.preventDefault(); // Prevent swipe/scroll gestures during drag or resize
+            }
             if (dragActive) {
                 box.style.left = (e.touches[0].clientX - offsetX) + 'px';
                 box.style.top = (e.touches[0].clientY - offsetY) + 'px';
