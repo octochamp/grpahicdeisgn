@@ -50,8 +50,8 @@
             startHeight = box.offsetHeight;
             startLeft = box.offsetLeft;
             startTop = box.offsetTop;
-            offsetX = e.touches[0].clientX - rect.left;
-            offsetY = e.touches[0].clientY - rect.top;
+            offsetX = e.touches[0].clientX;
+            offsetY = e.touches[0].clientY;
             document.body.style.userSelect = 'none';
         }, { passive: false });
 
