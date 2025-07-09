@@ -27,6 +27,7 @@ body {
     height: 100vh;
     font-family: MapleMono, monospace;
     font-weight: 300;
+    overflow: hidden;
 }
 
 #background-image {
